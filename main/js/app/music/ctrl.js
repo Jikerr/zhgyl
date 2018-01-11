@@ -3,14 +3,19 @@ app.controller('MusicCtrl',
     $scope.API = null;
     $scope.active = 0;
 
+    $scope.searchMusic = function() {
+        alert($scope.selected);
+    };
+
+
     $scope.audios = [
       {
         title: "1. Lentement",
         artist:"Miaow",
         poster: "img/b0.jpg",
         sources: [
-          {src: $sce.trustAsResourceUrl("http://flatfull.com/themes/assets/musics/Miaow-03-Lentement.mp3"), type: "audio/mpeg"},
-          {src: $sce.trustAsResourceUrl("http://flatfull.com/themes/assets/musics/Miaow-03-Lentement.ogg"), type: "audio/ogg"}
+          {src: $sce.trustAsResourceUrl("http://zhangmenshiting.qianqian.com/data2/music/42783748/42783748.mp3?xcode=7e7951e27e9d6088e61345ed80ef9cd2"), type: "audio/mpeg"},
+          {src: $sce.trustAsResourceUrl("http://zhangmenshiting.qianqian.com/data2/music/42783748/42783748.mp3?xcode=7e7951e27e9d6088e61345ed80ef9cd2"), type: "audio/ogg"}
         ]
       },
       {
