@@ -1,10 +1,26 @@
 app.controller('MusicCtrl',
-  ["$sce",'$scope', function ($sce, $scope) {    
+  ["$sce", '$scope',
+   "$location","$state",
+   "$http",
+    function ($sce, $scope,$location,$state,$http) {
     $scope.API = null;
     $scope.active = 0;
 
     $scope.searchMusic = function() {
-        alert($scope.selected);
+        $state.go("music.playlist",{"fold":"soundtracks"});
+        var selected = $scope.selected;
+
+        $http({
+            method: 'JSONP',
+            url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?format=json&callback=JSON_CALLBACK&from=webapp_music&method=baidu.ting.search.catalogSug&query=%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA',
+        }).success(function (data) {
+            console.log(data);
+            var songs = data.song;
+            for(var i = 0;i<songs.length;i++){
+
+            }
+
+        });
     };
 
 
